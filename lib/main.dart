@@ -1,10 +1,18 @@
+
 import 'package:flutter/material.dart';
 import 'package:news_app/pages/article_view_page.dart';
 import 'package:news_app/pages/category_news_page.dart';
 import 'package:news_app/pages/home_page.dart';
+import 'package:news_app/providers/news_provider.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (context) => NewsProvider()),
+    ],
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -20,10 +28,7 @@ class MyApp extends StatelessWidget {
         HomePage.routeName: (context) => HomePage(),
         ArticleViewPage.routeName: (context) => ArticleViewPage(),
         CategoryNewsPage.routeName: (context) => CategoryNewsPage(),
-
       },
     );
   }
 }
-
-

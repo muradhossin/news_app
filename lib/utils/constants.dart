@@ -1,5 +1,7 @@
 import '../models/category_model.dart';
 
+const String newsApiKey = '8a138a81348146b99ac524b389cdd0e6';
+
 List<CategoryModel> categoryList = [
   CategoryModel(
     categoryName: "Business",
