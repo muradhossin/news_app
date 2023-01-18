@@ -58,6 +58,7 @@ class _HomePageState extends State<HomePage> {
                                 imageUrl: item.urlToImage,
                                 title: item.title,
                                 description: item.description,
+                                articleUrl: item.url,
                               ))
                           .toList(),
                     )

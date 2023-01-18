@@ -10,7 +10,7 @@ class NewsProvider extends ChangeNotifier{
   bool get hasDataLoaded => newsResponse != null;
 
   Future<void> getNewsData() async{
-    final urlString = "https://newsapi.org/v2/everything?q=tesla&from=2022-12-17&sortBy=publishedAt&apiKey=$newsApiKey";
+    final urlString = "https://newsapi.org/v2/everything?q=tesla&from=2022-12-18&sortBy=publishedAt&apiKey=$newsApiKey";
 
     try{
       final response = await Http.get(Uri.parse(urlString));
