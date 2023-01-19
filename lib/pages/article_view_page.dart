@@ -16,7 +16,14 @@ class _ArticleViewPageState extends State<ArticleViewPage> {
     final articleUrl = ModalRoute.of(context)!.settings.arguments as String;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('News App'),
+        title: const Text(
+          'Latest News',
+          style: TextStyle(
+              color: Colors.black, fontWeight: FontWeight.bold, fontSize: 30),
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.white,
+        elevation: 0.0,
       ),
       body: WillPopScope(
         onWillPop: () async{

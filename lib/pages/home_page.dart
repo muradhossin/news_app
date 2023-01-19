@@ -16,13 +16,16 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   late NewsProvider newsProvider;
   bool isCalledOnce = true;
+
   @override
   void didChangeDependencies() {
-    if(isCalledOnce){
-      newsProvider = Provider.of<NewsProvider>(context, listen: true);
-      newsProvider.getNewsData();
-    }
-    isCalledOnce = false;
+    // if (isCalledOnce) {
+    //   newsProvider = Provider.of<NewsProvider>(context, listen: true);
+    //   newsProvider.getNewsData();
+    // }
+    // isCalledOnce = false;
+    newsProvider = Provider.of<NewsProvider>(context, listen: true);
+    newsProvider.getNewsData();
     super.didChangeDependencies();
   }
 
@@ -31,12 +34,20 @@ class _HomePageState extends State<HomePage> {
     final newsList = newsProvider.newsResponse?.articles;
     return Scaffold(
         appBar: AppBar(
-          title: const Text('News App'),
+          title: const Text(
+            'Latest News',
+            style: TextStyle(
+                color: Colors.black, fontWeight: FontWeight.bold, fontSize: 30),
+          ),
+          centerTitle: true,
+          backgroundColor: Colors.white,
+          elevation: 0.0,
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(
+        body: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(right: 8.0),
+              child: SizedBox(
                 height: 80,
                 child: ListView.builder(
                   shrinkWrap: true,
@@ -51,22 +62,29 @@ class _HomePageState extends State<HomePage> {
                   },
                 ),
               ),
-              newsProvider.hasDataLoaded
-                  ? Column(
-                      children: newsList
-                          !.map((item) => BlogTile(
-                                imageUrl: item.urlToImage,
-                                title: item.title,
-                                description: item.description,
-                                articleUrl: item.url,
-                              ))
-                          .toList(),
-                    )
-                  : const Center(
+            ),
+            newsProvider.hasDataLoaded
+                ? Expanded(
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: newsList!
+                            .map((item) => BlogTile(
+                                  imageUrl: item.urlToImage,
+                                  title: item.title,
+                                  description: item.description,
+                                  articleUrl: item.url,
+                                ))
+                            .toList(),
+                      ),
+                    ),
+                  )
+                : SizedBox(
+                    height: MediaQuery.of(context).size.height / 1.3,
+                    child: const Center(
                       child: CircularProgressIndicator(),
-                    )
-            ],
-          ),
+                    ),
+                  )
+          ],
         ));
   }
 }

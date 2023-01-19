@@ -6,11 +6,16 @@ import 'package:news_app/models/news_response.dart';
 import 'package:news_app/utils/constants.dart';
 class NewsProvider extends ChangeNotifier{
   NewsResponse? newsResponse;
+  String category = 'technology';
+
+  void setCategory(String cat){
+    category = cat;
+  }
 
   bool get hasDataLoaded => newsResponse != null;
 
   Future<void> getNewsData() async{
-    final urlString = "https://newsapi.org/v2/everything?q=tesla&from=2022-12-18&sortBy=publishedAt&apiKey=$newsApiKey";
+    final urlString = "https://newsapi.org/v2/top-headlines?country=us&category=$category&apiKey=$newsApiKey";
 
     try{
       final response = await Http.get(Uri.parse(urlString));

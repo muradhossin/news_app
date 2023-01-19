@@ -1,6 +1,17 @@
+import 'package:intl/intl.dart';
+
 import '../models/category_model.dart';
 
 const String newsApiKey = '8a138a81348146b99ac524b389cdd0e6';
+
+const String catNameBusiness = 'business';
+const String catNameEntertainment = 'entertainment';
+const String catNameGeneral = 'general';
+const String catNameHealth = 'health';
+const String catNameScience = 'science';
+const String catNameSports = 'sports';
+const String catNameTechnology = 'technology';
+
 
 List<CategoryModel> categoryList = [
   CategoryModel(
@@ -11,7 +22,7 @@ List<CategoryModel> categoryList = [
   CategoryModel(
     categoryName: "Entertainment",
     imageUrl:
-    "https://images.unsplash.com/photo-1618609378039-b572f64c5b42?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1228&q=80",
+    "https://images.unsplash.com/photo-1533923156502-be31530547c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
   ),
   CategoryModel(
     categoryName: "General",
