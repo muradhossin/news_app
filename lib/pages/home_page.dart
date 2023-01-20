@@ -19,13 +19,12 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void didChangeDependencies() {
-    // if (isCalledOnce) {
-    //   newsProvider = Provider.of<NewsProvider>(context, listen: true);
-    //   newsProvider.getNewsData();
-    // }
-    // isCalledOnce = false;
-    newsProvider = Provider.of<NewsProvider>(context, listen: true);
-    newsProvider.getNewsData();
+    if (isCalledOnce) {
+      newsProvider = Provider.of<NewsProvider>(context, listen: true);
+      newsProvider.getNewsData();
+    }
+    isCalledOnce = false;
+
     super.didChangeDependencies();
   }
 

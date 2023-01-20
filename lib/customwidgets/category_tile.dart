@@ -15,7 +15,7 @@ class CategoryTile extends StatefulWidget {
 }
 
 class _CategoryTileState extends State<CategoryTile> {
-
+  Color containerColor = Colors.black38;
   @override
   Widget build(BuildContext context) {
 
@@ -24,6 +24,19 @@ class _CategoryTileState extends State<CategoryTile> {
       GestureDetector(
         onTap: () {
           provider.setCategory(widget.categoryName);
+          provider.getNewsData();
+
+          if(containerColor == Colors.black38){
+            setState(() {
+              setState(() {
+                containerColor = Colors.lightBlueAccent;
+              });
+            });
+          }else{
+            setState(() {
+              containerColor = Colors.black38;
+            });
+          }
         },
         child: Padding(
           padding: const EdgeInsets.only(left: 8, top: 8),
@@ -46,7 +59,7 @@ class _CategoryTileState extends State<CategoryTile> {
                 height: 60,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(6),
-                  color: Colors.black38,
+                  color: containerColor,
                 ),
                 child: Text(
                   widget.categoryName,

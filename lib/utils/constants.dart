@@ -4,13 +4,13 @@ import '../models/category_model.dart';
 
 const String newsApiKey = '8a138a81348146b99ac524b389cdd0e6';
 
-const String catNameBusiness = 'business';
-const String catNameEntertainment = 'entertainment';
-const String catNameGeneral = 'general';
-const String catNameHealth = 'health';
-const String catNameScience = 'science';
-const String catNameSports = 'sports';
-const String catNameTechnology = 'technology';
+const String catNameBusiness = 'Business';
+const String catNameEntertainment = 'Entertainment';
+const String catNameGeneral = 'General';
+const String catNameHealth = 'Health';
+const String catNameScience = 'Science';
+const String catNameSports = 'Sports';
+const String catNameTechnology = 'Technology';
 
 
 List<CategoryModel> categoryList = [
